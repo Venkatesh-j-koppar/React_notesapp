@@ -10,6 +10,7 @@ const NotesList=({notes,handleAddNote,handleDeleteNote})=>{
             />)}
             <AddNote handleAddNote={handleAddNote}></AddNote>
            
+           
         </div>
     )
 }
