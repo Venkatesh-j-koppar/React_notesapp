@@ -5,6 +5,7 @@ import Search from "./Components/Search";
 
 
 const App=()=>{
+  const [search,setSearch]=useState("");
   const [notes,setNotes]=useState([
     {
       id:nanoid(),
@@ -29,7 +30,6 @@ const App=()=>{
 
   ]);
 
-  const [search,setSearch]=useState("");
 
   const addNote=(text)=>{
     const date=new Date();
@@ -43,7 +43,7 @@ const App=()=>{
   }
 
   const deletenote=(id)=>{
-    const newNotes=notes.filter((note)=>note.id!=id)
+    const newNotes=notes.filter((note)=>note.id!==id)
 
     setNotes(newNotes);
 
@@ -55,7 +55,9 @@ const App=()=>{
   return (
     <div className="container">
       <Search handleSearch={setSearch}></Search>
-      <NotesList notes={notes} handleAddNote={addNote}
+      <NotesList 
+      notes={notes.filter((note)=> note.text.toLowerCase().includes(search))} 
+      handleAddNote={addNote}
       handleDeleteNote={deletenote}
       ></NotesList>
       
