@@ -7,9 +7,8 @@ return(
     <div className="search">
         <MdSearch className="searchicon" size="1.3em"></MdSearch>
         <input type="text" placeholder="type to search" onChange={(event)=>{
-            var val=event.target.value;
-            val=val.toLowerCase();
-            props.handleSearch(val)}}></input>
+            
+            props.handleSearch(event.target.value)}}></input>
 
     </div>
 )
